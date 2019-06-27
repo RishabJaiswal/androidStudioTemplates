@@ -1,0 +1,28 @@
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME}
+
+#end
+#parse("File Header.java")
+class ${NAME}(
+    private val context: Context,
+    private val list: List<${LIST_MODEL}>
+) : RecyclerView.Adapter<${NAME}.ViewHolder>() {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(context).inflate(R.layout.${item_layout}, parent, false)
+        return ${NAME}.ViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(list[position])
+    }
+
+    override fun getItemCount(): Int {
+        return list.size
+    }
+
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(item: ${LIST_MODEL}) {
+
+        }
+    }
+}
